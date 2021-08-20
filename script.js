@@ -1,7 +1,8 @@
 const grid = document.querySelector("#gridContainer");
 const resetButton = document.querySelector("#reset");
 let userInput;
-const squareColor = "#F25287";
+let squareColor = "#F25287";
+let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
 createGrid = () => {
   grid.style.gridTemplateColumns = `repeat(16, 2fr)`;
@@ -54,5 +55,13 @@ resetGrid = () => {
     grid.appendChild(div);
   }
 };
+
+const colorButton = document.querySelector("#colorButton");
+
+colorButton.addEventListener("click", function (event) {
+  console.log("Clicked");
+  squareColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  console.log(squareColor);
+});
 
 createGrid();
